@@ -87,6 +87,10 @@ func (wm *WalletManager) LoadAssetsConfig(c config.Configer) error {
 		}
 		wm.Api = api.NewClientWithCustomConfig(config2)
 	}
+	wm.Config.DataDir = c.String("dataDir")
+
+	//数据文件夹
+	wm.Config.makeDataDir()
 
 	return nil
 }
